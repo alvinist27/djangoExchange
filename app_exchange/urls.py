@@ -1,6 +1,6 @@
 from django.urls import path
-from app_exchange.views import ConvertView
+from app_exchange.views import convert_view
 
 urlpatterns = [
-    path('', ConvertView.as_view(), name='convert')
+    path('', convert_view, name='convert')
 ]

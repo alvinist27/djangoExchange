@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Я</h1>
+    <h1>Currency Converter</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <h2>{{ result }}</h2>
+    {% endif %}
 {% endblock %}
