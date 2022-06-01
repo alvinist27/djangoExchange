@@ -1,0 +1,20 @@
+body {
+    background-image: url("../img/background.jpg");
+}
+
+.converter {
+    position: fixed;
+    background: #ffffff;
+    width: 600px;
+    height: 200px;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    margin: -120px 0 0 -300px;
+    border-radius: 30px;
+
+}
+
+.converter h1 {
+    padding: 10px;
+}

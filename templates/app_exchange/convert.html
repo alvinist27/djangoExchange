@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Currency Converter</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Convert</button>
-    </form>
+    <div class="converter">
+        <h1>Currency Converter</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.amount.label }} {{ form.amount }}
+            {{ form.from_choice.label }} {{ form.from_choice }}
+            {{ form.to_choice.label }} {{ form.to_choice }}
+            <button type="submit">Convert</button>
+        </form>
+        {% if result %}
+            <h2>{{ form.amount.value }} {{ form.from_choice.value }} = {{ result }} {{ form.to_choice.value }}</h2>
+        {% else %}
+            <p>Conversion is made according to the rate on the exchangerate.host API</p>
+        {% endif %}
 
-    {% if result %}
-        <h2>{{ result }}</h2>
-    {% endif %}
+    </div>
 {% endblock %}
