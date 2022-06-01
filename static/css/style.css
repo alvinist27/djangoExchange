@@ -18,3 +18,8 @@ body {
 .converter h1, h3, p {
     padding: 10px;
 }
+
+#lang {
+    float: right;
+    padding: 10px;
+}
