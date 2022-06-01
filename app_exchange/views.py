@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.views.decorators.cache import cache_page
 from .forms import ConverterForm
 import requests
 
 
+@cache_page(300)
 def convert_view(request):
     response = requests.get('https://api.exchangerate.host/latest?base=USD').json()
     rates = response.get('rates')
