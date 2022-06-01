@@ -1,17 +1,30 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
     <div class="converter">
         <h1>Currency Converter</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form.amount.label }} {{ form.amount }}
-            {{ form.from_choice.label }} {{ form.from_choice }}
-            {{ form.to_choice.label }} {{ form.to_choice }}
-            <button type="submit">Convert</button>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-12">
+                    {{ form.amount|as_crispy_field }}
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    {{ form.from_choice|as_crispy_field }}
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    {{ form.to_choice|as_crispy_field }}
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <br><button type="submit" class="btn btn-success">Convert</button>
+                </div>
+            </div>
         </form>
+
         {% if result %}
-            <h2>{{ form.amount.value }} {{ form.from_choice.value }} = {{ result }} {{ form.to_choice.value }}</h2>
+            <h3>{{ form.amount.value }} {{ form.from_choice.value }} = {{ result }} {{ form.to_choice.value }}</h3>
         {% else %}
             <p>Conversion is made according to the rate on the exchangerate.host API</p>
         {% endif %}

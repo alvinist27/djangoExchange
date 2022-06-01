@@ -5,16 +5,16 @@ body {
 .converter {
     position: fixed;
     background: #ffffff;
-    width: 600px;
-    height: 200px;
+    min-width: 600px;
+    min-height: 200px;
     text-align: center;
     left: 50%;
     top: 50%;
     margin: -120px 0 0 -300px;
     border-radius: 30px;
-
+    justify-content: center;
 }
 
-.converter h1 {
+.converter h1, h3, p {
     padding: 10px;
 }
